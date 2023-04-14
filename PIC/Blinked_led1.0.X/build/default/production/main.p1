@@ -1,0 +1,75 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"6 ./App.h
+[; ;./App.h: 6: void GPIO_INIT();
+[v _GPIO_INIT `(v ~T0 @X0 0 e? ]
+"14 ./HAL.h
+[; ;./HAL.h: 14: void PinDir(uint8_t Base, uint8_t pin, uint8_t state);
+[v _PinDir `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"11 main.c
+[; ;main.c: 11:     PinDir(0x05, 1, input);
+[c E34 0 1 .. ]
+[n E34 . output input  ]
+"17 ./HAL.h
+[; ;./HAL.h: 17: uint8_t PinRead(uint8_t Base, uint8_t pin);
+[v _PinRead `(uc ~T0 @X0 0 ef2`uc`uc ]
+"15
+[; ;./HAL.h: 15: void PinWrite(uint8_t Base, uint8_t pin, uint8_t stat);
+[v _PinWrite `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"16 main.c
+[; ;main.c: 16:             PinWrite(0x06, 1, low);
+[c E30 0 1 .. ]
+[n E30 . low high  ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"9 main.c
+[; ;main.c: 9: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"10
+[; ;main.c: 10:     GPIO_INIT();
+[e ( _GPIO_INIT ..  ]
+"11
+[; ;main.c: 11:     PinDir(0x05, 1, input);
+[e ( _PinDir (3 , , -> -> 5 `i `uc -> -> 1 `i `uc -> . `E34 1 `uc ]
+"12
+[; ;main.c: 12:     PinDir(0x06, 1, output);
+[e ( _PinDir (3 , , -> -> 6 `i `uc -> -> 1 `i `uc -> . `E34 0 `uc ]
+"14
+[; ;main.c: 14:     while(1){
+[e :U 3 ]
+{
+"15
+[; ;main.c: 15:         if(PinRead(0x05, 1)){
+[e $ ! != -> ( _PinRead (2 , -> -> 5 `i `uc -> -> 1 `i `uc `i -> 0 `i 5  ]
+{
+"16
+[; ;main.c: 16:             PinWrite(0x06, 1, low);
+[e ( _PinWrite (3 , , -> -> 6 `i `uc -> -> 1 `i `uc -> . `E30 0 `uc ]
+"17
+[; ;main.c: 17:         }else{
+}
+[e $U 6  ]
+[e :U 5 ]
+{
+"18
+[; ;main.c: 18:             PinWrite(0x06, 1, high);
+[e ( _PinWrite (3 , , -> -> 6 `i `uc -> -> 1 `i `uc -> . `E30 1 `uc ]
+"19
+[; ;main.c: 19:         }
+}
+[e :U 6 ]
+"20
+[; ;main.c: 20:     }
+}
+[e :U 2 ]
+[e $U 3  ]
+[e :U 4 ]
+"21
+[; ;main.c: 21:     return;
+[e $UE 1  ]
+"22
+[; ;main.c: 22: }
+[e :UE 1 ]
+}

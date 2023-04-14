@@ -1,0 +1,919 @@
+
+
+Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
+                                                                                               Sat Apr 15 00:08:00 2023
+
+Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	maintext,global,class=CODE,split=1,delta=2
+     7                           	psect	text1,local,class=CODE,merge=1,delta=2
+     8                           	psect	text2,local,class=CODE,merge=1,delta=2
+     9                           	psect	text3,local,class=CODE,merge=1,delta=2
+    10                           	psect	text4,local,class=CODE,merge=1,delta=2
+    11                           	psect	text5,local,class=CODE,merge=1,delta=2
+    12                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    13                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    14                           	dabs	1,0x7E,2
+    15  0000                     
+    16                           ; Version 2.40
+    17                           ; Generated 17/11/2021 GMT
+    18                           ; 
+    19                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution. Publication is not required when
+    33                           ;        this file is used in an embedded application.
+    34                           ; 
+    35                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    36                           ;        software without specific prior written permission.
+    37                           ; 
+    38                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    39                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    40                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    41                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    42                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    43                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    44                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    45                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    46                           ; 
+    47                           ; 
+    48                           ; Code-generator required, PIC16F877A Definitions
+    49                           ; 
+    50                           ; SFR Addresses
+    51  0000                     	;# 
+    52  0001                     	;# 
+    53  0002                     	;# 
+    54  0003                     	;# 
+    55  0004                     	;# 
+    56  0005                     	;# 
+    57  0006                     	;# 
+    58  0007                     	;# 
+    59  0008                     	;# 
+    60  0009                     	;# 
+    61  000A                     	;# 
+    62  000B                     	;# 
+    63  000C                     	;# 
+    64  000D                     	;# 
+    65  000E                     	;# 
+    66  000E                     	;# 
+    67  000F                     	;# 
+    68  0010                     	;# 
+    69  0011                     	;# 
+    70  0012                     	;# 
+    71  0013                     	;# 
+    72  0014                     	;# 
+    73  0015                     	;# 
+    74  0015                     	;# 
+    75  0016                     	;# 
+    76  0017                     	;# 
+    77  0018                     	;# 
+    78  0019                     	;# 
+    79  001A                     	;# 
+    80  001B                     	;# 
+    81  001B                     	;# 
+    82  001C                     	;# 
+    83  001D                     	;# 
+    84  001E                     	;# 
+    85  001F                     	;# 
+    86  0081                     	;# 
+    87  0085                     	;# 
+    88  0086                     	;# 
+    89  0087                     	;# 
+    90  0088                     	;# 
+    91  0089                     	;# 
+    92  008C                     	;# 
+    93  008D                     	;# 
+    94  008E                     	;# 
+    95  0091                     	;# 
+    96  0092                     	;# 
+    97  0093                     	;# 
+    98  0094                     	;# 
+    99  0098                     	;# 
+   100  0099                     	;# 
+   101  009C                     	;# 
+   102  009D                     	;# 
+   103  009E                     	;# 
+   104  009F                     	;# 
+   105  010C                     	;# 
+   106  010D                     	;# 
+   107  010E                     	;# 
+   108  010F                     	;# 
+   109  018C                     	;# 
+   110  018D                     	;# 
+   111                           
+   112                           	psect	cinit
+   113  07FC                     start_initialization:	
+   114                           ; #config settings
+   115                           
+   116  07FC                     __initialization:
+   117  07FC                     end_of_initialization:	
+   118                           ;End of C runtime variable initialization code
+   119                           
+   120  07FC                     __end_of__initialization:
+   121  07FC  0183               	clrf	3
+   122  07FD  120A  118A  2FBF   	ljmp	_main	;jump to C main() function
+   123                           
+   124                           	psect	cstackCOMMON
+   125  0070                     __pcstackCOMMON:
+   126  0070                     ?_GPIO_INIT:
+   127  0070                     ?_PinDir:	
+   128                           ; 1 bytes @ 0x0
+   129                           
+   130  0070                     ?_PinRead:	
+   131                           ; 1 bytes @ 0x0
+   132                           
+   133  0070                     ?_PinWrite:	
+   134                           ; 1 bytes @ 0x0
+   135                           
+   136  0070                     ?_SelectADC:	
+   137                           ; 1 bytes @ 0x0
+   138                           
+   139  0070                     ?_main:	
+   140                           ; 1 bytes @ 0x0
+   141                           
+   142  0070                     PinDir@pin:	
+   143                           ; 1 bytes @ 0x0
+   144                           
+   145  0070                     PinWrite@pin:	
+   146                           ; 1 bytes @ 0x0
+   147                           
+   148  0070                     PinRead@pin:	
+   149                           ; 1 bytes @ 0x0
+   150                           
+   151  0070                     SelectADC@value:	
+   152                           ; 1 bytes @ 0x0
+   153                           
+   154                           
+   155                           ; 1 bytes @ 0x0
+   156  0070                     	ds	1
+   157  0071                     ??_PinRead:
+   158  0071                     ??_SelectADC:	
+   159                           ; 1 bytes @ 0x1
+   160                           
+   161  0071                     PinDir@state:	
+   162                           ; 1 bytes @ 0x1
+   163                           
+   164  0071                     PinWrite@stat:	
+   165                           ; 1 bytes @ 0x1
+   166                           
+   167                           
+   168                           ; 1 bytes @ 0x1
+   169  0071                     	ds	1
+   170  0072                     ??_PinDir:
+   171  0072                     ??_PinWrite:	
+   172                           ; 1 bytes @ 0x2
+   173                           
+   174                           
+   175                           ; 1 bytes @ 0x2
+   176  0072                     	ds	2
+   177  0074                     PinRead@Base:
+   178  0074                     SelectADC@Base:	
+   179                           ; 1 bytes @ 0x4
+   180                           
+   181                           
+   182                           ; 1 bytes @ 0x4
+   183  0074                     	ds	1
+   184  0075                     ??_GPIO_INIT:
+   185                           
+   186                           ; 1 bytes @ 0x5
+   187  0075                     	ds	1
+   188  0076                     PinDir@Base:
+   189  0076                     PinWrite@Base:	
+   190                           ; 1 bytes @ 0x6
+   191                           
+   192                           
+   193                           ; 1 bytes @ 0x6
+   194  0076                     	ds	1
+   195  0077                     ??_main:
+   196                           
+   197                           	psect	maintext
+   198  07BF                     __pmaintext:	
+   199                           ; 1 bytes @ 0x7
+   200 ;;
+   201 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   202 ;;
+   203 ;; *************** function _main *****************
+   204 ;; Defined at:
+   205 ;;		line 9 in file "main.c"
+   206 ;; Parameters:    Size  Location     Type
+   207 ;;		None
+   208 ;; Auto vars:     Size  Location     Type
+   209 ;;		None
+   210 ;; Return value:  Size  Location     Type
+   211 ;;                  1    wreg      void 
+   212 ;; Registers used:
+   213 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   214 ;; Tracked objects:
+   215 ;;		On entry : B00/0
+   216 ;;		On exit  : 0/0
+   217 ;;		Unchanged: 0/0
+   218 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   219 ;;      Params:         0       0       0       0       0
+   220 ;;      Locals:         0       0       0       0       0
+   221 ;;      Temps:          0       0       0       0       0
+   222 ;;      Totals:         0       0       0       0       0
+   223 ;;Total ram usage:        0 bytes
+   224 ;; Hardware stack levels required when called: 2
+   225 ;; This function calls:
+   226 ;;		_GPIO_INIT
+   227 ;;		_PinDir
+   228 ;;		_PinRead
+   229 ;;		_PinWrite
+   230 ;; This function is called by:
+   231 ;;		Startup code after reset
+   232 ;; This function uses a non-reentrant model
+   233 ;;
+   234                           
+   235  07BF                     _main:	
+   236                           ;psect for function _main
+   237                           
+   238  07BF                     l700:	
+   239                           ;incstack = 0
+   240                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   241                           
+   242                           
+   243                           ;main.c: 10:     GPIO_INIT();
+   244  07BF  120A  118A  2720  120A  118A  	fcall	_GPIO_INIT
+   245                           
+   246                           ;main.c: 11:     PinDir(0x05, 1, input);
+   247  07C4  01F0               	clrf	PinDir@pin
+   248  07C5  0AF0               	incf	PinDir@pin,f
+   249  07C6  01F1               	clrf	PinDir@state
+   250  07C7  0AF1               	incf	PinDir@state,f
+   251  07C8  3005               	movlw	5
+   252  07C9  120A  118A  2788  120A  118A  	fcall	_PinDir
+   253                           
+   254                           ;main.c: 12:     PinDir(0x06, 1, output);
+   255  07CE  01F0               	clrf	PinDir@pin
+   256  07CF  0AF0               	incf	PinDir@pin,f
+   257  07D0  01F1               	clrf	PinDir@state
+   258  07D1  3006               	movlw	6
+   259  07D2  120A  118A  2788  120A  118A  	fcall	_PinDir
+   260  07D7                     l13:	
+   261                           ;main.c: 14:     while(1){
+   262                           
+   263                           
+   264                           ;main.c: 15:         if(PinRead(0x05, 1)){
+   265  07D7  01F0               	clrf	PinRead@pin
+   266  07D8  0AF0               	incf	PinRead@pin,f
+   267  07D9  3005               	movlw	5
+   268  07DA  120A  118A  2739  120A  118A  	fcall	_PinRead
+   269  07DF  3A00               	xorlw	0
+   270  07E0  1903               	skipnz
+   271  07E1  2FE3               	goto	u191
+   272  07E2  2FE4               	goto	u190
+   273  07E3                     u191:
+   274  07E3  2FEE               	goto	l704
+   275  07E4                     u190:
+   276  07E4                     l702:
+   277                           
+   278                           ;main.c: 16:             PinWrite(0x06, 1, low);
+   279  07E4  01F0               	clrf	PinWrite@pin
+   280  07E5  0AF0               	incf	PinWrite@pin,f
+   281  07E6  01F1               	clrf	PinWrite@stat
+   282  07E7  3006               	movlw	6
+   283  07E8  120A  118A  2755  120A  118A  	fcall	_PinWrite
+   284                           
+   285                           ;main.c: 17:         }else{
+   286  07ED  2FD7               	goto	l13
+   287  07EE                     l704:
+   288                           
+   289                           ;main.c: 18:             PinWrite(0x06, 1, high);
+   290  07EE  01F0               	clrf	PinWrite@pin
+   291  07EF  0AF0               	incf	PinWrite@pin,f
+   292  07F0  01F1               	clrf	PinWrite@stat
+   293  07F1  0AF1               	incf	PinWrite@stat,f
+   294  07F2  3006               	movlw	6
+   295  07F3  120A  118A  2755  120A  118A  	fcall	_PinWrite
+   296  07F8  2FD7               	goto	l13
+   297  07F9  120A  118A  2800   	ljmp	start
+   298  07FC                     __end_of_main:
+   299                           
+   300                           	psect	text1
+   301  0755                     __ptext1:	
+   302 ;; *************** function _PinWrite *****************
+   303 ;; Defined at:
+   304 ;;		line 22 in file "HAL.c"
+   305 ;; Parameters:    Size  Location     Type
+   306 ;;  Base            1    wreg     unsigned char 
+   307 ;;  pin             1    0[COMMON] unsigned char 
+   308 ;;  stat            1    1[COMMON] unsigned char 
+   309 ;; Auto vars:     Size  Location     Type
+   310 ;;  Base            1    6[COMMON] unsigned char 
+   311 ;; Return value:  Size  Location     Type
+   312 ;;                  1    wreg      void 
+   313 ;; Registers used:
+   314 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   315 ;; Tracked objects:
+   316 ;;		On entry : 0/0
+   317 ;;		On exit  : 0/0
+   318 ;;		Unchanged: 0/0
+   319 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   320 ;;      Params:         2       0       0       0       0
+   321 ;;      Locals:         1       0       0       0       0
+   322 ;;      Temps:          4       0       0       0       0
+   323 ;;      Totals:         7       0       0       0       0
+   324 ;;Total ram usage:        7 bytes
+   325 ;; Hardware stack levels used: 1
+   326 ;; This function calls:
+   327 ;;		Nothing
+   328 ;; This function is called by:
+   329 ;;		_main
+   330 ;; This function uses a non-reentrant model
+   331 ;;
+   332                           
+   333  0755                     _PinWrite:	
+   334                           ;psect for function _PinWrite
+   335                           
+   336                           
+   337                           ;incstack = 0
+   338                           ; Regs used in _PinWrite: [wreg-fsr0h+status,2+status,0]
+   339                           ;PinWrite@Base stored from wreg
+   340  0755  00F6               	movwf	PinWrite@Base
+   341  0756                     l694:
+   342                           
+   343                           ;HAL.c: 24:     if(stat == high){
+   344  0756  0371               	decf	PinWrite@stat,w
+   345  0757  1D03               	btfss	3,2
+   346  0758  2F5A               	goto	u161
+   347  0759  2F5B               	goto	u160
+   348  075A                     u161:
+   349  075A  2F71               	goto	l698
+   350  075B                     u160:
+   351  075B                     l696:
+   352                           
+   353                           ;HAL.c: 26:         ((*(volatile uint8_t *)(Base)) |= 1<<pin);
+   354  075B  3001               	movlw	1
+   355  075C  00F2               	movwf	??_PinWrite
+   356  075D  0A70               	incf	PinWrite@pin,w
+   357  075E  2F61               	goto	u174
+   358  075F                     u175:
+   359  075F  1003               	clrc
+   360  0760  0DF2               	rlf	??_PinWrite,f
+   361  0761                     u174:
+   362  0761  3EFF               	addlw	-1
+   363  0762  1D03               	skipz
+   364  0763  2F5F               	goto	u175
+   365  0764  0872               	movf	??_PinWrite,w
+   366  0765  00F3               	movwf	??_PinWrite+1
+   367  0766  0876               	movf	PinWrite@Base,w
+   368  0767  00F4               	movwf	??_PinWrite+2
+   369  0768  01F5               	clrf	??_PinWrite+3
+   370  0769  0874               	movf	??_PinWrite+2,w
+   371  076A  0084               	movwf	4
+   372  076B  1783               	bsf	3,7
+   373  076C  1C75               	btfss	??_PinWrite+3,0
+   374  076D  1383               	bcf	3,7
+   375  076E  0873               	movf	??_PinWrite+1,w
+   376  076F  0480               	iorwf	0,f
+   377                           
+   378                           ;HAL.c: 30:     }else{
+   379  0770  2F87               	goto	l33
+   380  0771                     l698:
+   381                           
+   382                           ;HAL.c: 32:         ((*(volatile uint8_t *)(Base)) &= ~(1<<pin));
+   383  0771  3001               	movlw	1
+   384  0772  00F2               	movwf	??_PinWrite
+   385  0773  0A70               	incf	PinWrite@pin,w
+   386  0774  2F77               	goto	u184
+   387  0775                     u185:
+   388  0775  1003               	clrc
+   389  0776  0DF2               	rlf	??_PinWrite,f
+   390  0777                     u184:
+   391  0777  3EFF               	addlw	-1
+   392  0778  1D03               	skipz
+   393  0779  2F75               	goto	u185
+   394  077A  0872               	movf	??_PinWrite,w
+   395  077B  3AFF               	xorlw	255
+   396  077C  00F3               	movwf	??_PinWrite+1
+   397  077D  0876               	movf	PinWrite@Base,w
+   398  077E  00F4               	movwf	??_PinWrite+2
+   399  077F  01F5               	clrf	??_PinWrite+3
+   400  0780  0874               	movf	??_PinWrite+2,w
+   401  0781  0084               	movwf	4
+   402  0782  1783               	bsf	3,7
+   403  0783  1C75               	btfss	??_PinWrite+3,0
+   404  0784  1383               	bcf	3,7
+   405  0785  0873               	movf	??_PinWrite+1,w
+   406  0786  0580               	andwf	0,f
+   407  0787                     l33:
+   408  0787  0008               	return
+   409  0788                     __end_of_PinWrite:
+   410                           
+   411                           	psect	text2
+   412  0739                     __ptext2:	
+   413 ;; *************** function _PinRead *****************
+   414 ;; Defined at:
+   415 ;;		line 40 in file "HAL.c"
+   416 ;; Parameters:    Size  Location     Type
+   417 ;;  Base            1    wreg     unsigned char 
+   418 ;;  pin             1    0[COMMON] unsigned char 
+   419 ;; Auto vars:     Size  Location     Type
+   420 ;;  Base            1    4[COMMON] unsigned char 
+   421 ;; Return value:  Size  Location     Type
+   422 ;;                  1    wreg      unsigned char 
+   423 ;; Registers used:
+   424 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   425 ;; Tracked objects:
+   426 ;;		On entry : 0/0
+   427 ;;		On exit  : 0/0
+   428 ;;		Unchanged: 0/0
+   429 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   430 ;;      Params:         1       0       0       0       0
+   431 ;;      Locals:         1       0       0       0       0
+   432 ;;      Temps:          3       0       0       0       0
+   433 ;;      Totals:         5       0       0       0       0
+   434 ;;Total ram usage:        5 bytes
+   435 ;; Hardware stack levels used: 1
+   436 ;; This function calls:
+   437 ;;		Nothing
+   438 ;; This function is called by:
+   439 ;;		_main
+   440 ;; This function uses a non-reentrant model
+   441 ;;
+   442                           
+   443  0739                     _PinRead:	
+   444                           ;psect for function _PinRead
+   445                           
+   446                           
+   447                           ;incstack = 0
+   448                           ; Regs used in _PinRead: [wreg-fsr0h+status,2+status,0]
+   449                           ;PinRead@Base stored from wreg
+   450  0739  00F4               	movwf	PinRead@Base
+   451  073A                     l682:
+   452                           
+   453                           ;HAL.c: 41: if ((*(volatile uint8_t *)(Base)) & (1<<pin)) return 1;
+   454  073A  0874               	movf	PinRead@Base,w
+   455  073B  00F1               	movwf	??_PinRead
+   456  073C  01F2               	clrf	??_PinRead+1
+   457  073D  0871               	movf	??_PinRead,w
+   458  073E  0084               	movwf	4
+   459  073F  1783               	bsf	3,7
+   460  0740  1C72               	btfss	??_PinRead+1,0
+   461  0741  1383               	bcf	3,7
+   462  0742  3001               	movlw	1
+   463  0743  00F3               	movwf	??_PinRead+2
+   464  0744  0A70               	incf	PinRead@pin,w
+   465  0745  2F48               	goto	u144
+   466  0746                     u145:
+   467  0746  1003               	clrc
+   468  0747  0DF3               	rlf	??_PinRead+2,f
+   469  0748                     u144:
+   470  0748  3EFF               	addlw	-1
+   471  0749  1D03               	skipz
+   472  074A  2F46               	goto	u145
+   473  074B  0873               	movf	??_PinRead+2,w
+   474  074C  0500               	andwf	0,w
+   475  074D  1903               	btfsc	3,2
+   476  074E  2F50               	goto	u151
+   477  074F  2F51               	goto	u150
+   478  0750                     u151:
+   479  0750  2F53               	goto	l690
+   480  0751                     u150:
+   481  0751                     l684:
+   482  0751  3001               	movlw	1
+   483  0752  2F54               	goto	l37
+   484  0753                     l690:
+   485  0753  3000               	movlw	0
+   486  0754                     l37:
+   487  0754  0008               	return
+   488  0755                     __end_of_PinRead:
+   489                           
+   490                           	psect	text3
+   491  0788                     __ptext3:	
+   492 ;; *************** function _PinDir *****************
+   493 ;; Defined at:
+   494 ;;		line 6 in file "HAL.c"
+   495 ;; Parameters:    Size  Location     Type
+   496 ;;  Base            1    wreg     unsigned char 
+   497 ;;  pin             1    0[COMMON] unsigned char 
+   498 ;;  state           1    1[COMMON] unsigned char 
+   499 ;; Auto vars:     Size  Location     Type
+   500 ;;  Base            1    6[COMMON] unsigned char 
+   501 ;; Return value:  Size  Location     Type
+   502 ;;                  1    wreg      void 
+   503 ;; Registers used:
+   504 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   505 ;; Tracked objects:
+   506 ;;		On entry : 0/0
+   507 ;;		On exit  : 0/0
+   508 ;;		Unchanged: 0/0
+   509 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   510 ;;      Params:         2       0       0       0       0
+   511 ;;      Locals:         1       0       0       0       0
+   512 ;;      Temps:          4       0       0       0       0
+   513 ;;      Totals:         7       0       0       0       0
+   514 ;;Total ram usage:        7 bytes
+   515 ;; Hardware stack levels used: 1
+   516 ;; This function calls:
+   517 ;;		Nothing
+   518 ;; This function is called by:
+   519 ;;		_main
+   520 ;; This function uses a non-reentrant model
+   521 ;;
+   522                           
+   523  0788                     _PinDir:	
+   524                           ;psect for function _PinDir
+   525                           
+   526                           
+   527                           ;incstack = 0
+   528                           ; Regs used in _PinDir: [wreg-fsr0h+status,2+status,0]
+   529                           ;PinDir@Base stored from wreg
+   530  0788  00F6               	movwf	PinDir@Base
+   531  0789                     l676:
+   532                           
+   533                           ;HAL.c: 7:     if(state == output){
+   534  0789  0871               	movf	PinDir@state,w
+   535  078A  1D03               	btfss	3,2
+   536  078B  2F8D               	goto	u111
+   537  078C  2F8E               	goto	u110
+   538  078D                     u111:
+   539  078D  2FA7               	goto	l680
+   540  078E                     u110:
+   541  078E                     l678:
+   542                           
+   543                           ;HAL.c: 9:         ((*(volatile uint8_t *)((Base|0x80))) &= ~(1<<pin));
+   544  078E  3001               	movlw	1
+   545  078F  00F2               	movwf	??_PinDir
+   546  0790  0A70               	incf	PinDir@pin,w
+   547  0791  2F94               	goto	u124
+   548  0792                     u125:
+   549  0792  1003               	clrc
+   550  0793  0DF2               	rlf	??_PinDir,f
+   551  0794                     u124:
+   552  0794  3EFF               	addlw	-1
+   553  0795  1D03               	skipz
+   554  0796  2F92               	goto	u125
+   555  0797  0872               	movf	??_PinDir,w
+   556  0798  3AFF               	xorlw	255
+   557  0799  00F3               	movwf	??_PinDir+1
+   558  079A  3080               	movlw	128
+   559  079B  0476               	iorwf	PinDir@Base,w
+   560  079C  00F4               	movwf	??_PinDir+2
+   561  079D  3000               	movlw	0
+   562  079E  00F5               	movwf	??_PinDir+3
+   563  079F  0874               	movf	??_PinDir+2,w
+   564  07A0  0084               	movwf	4
+   565  07A1  1783               	bsf	3,7
+   566  07A2  1C75               	btfss	??_PinDir+3,0
+   567  07A3  1383               	bcf	3,7
+   568  07A4  0873               	movf	??_PinDir+1,w
+   569  07A5  0580               	andwf	0,f
+   570                           
+   571                           ;HAL.c: 13:     }else{
+   572  07A6  2FBE               	goto	l28
+   573  07A7                     l680:
+   574                           
+   575                           ;HAL.c: 15:         ((*(volatile uint8_t *)((Base|0x80))) |= 1<<pin);
+   576  07A7  3001               	movlw	1
+   577  07A8  00F2               	movwf	??_PinDir
+   578  07A9  0A70               	incf	PinDir@pin,w
+   579  07AA  2FAD               	goto	u134
+   580  07AB                     u135:
+   581  07AB  1003               	clrc
+   582  07AC  0DF2               	rlf	??_PinDir,f
+   583  07AD                     u134:
+   584  07AD  3EFF               	addlw	-1
+   585  07AE  1D03               	skipz
+   586  07AF  2FAB               	goto	u135
+   587  07B0  0872               	movf	??_PinDir,w
+   588  07B1  00F3               	movwf	??_PinDir+1
+   589  07B2  3080               	movlw	128
+   590  07B3  0476               	iorwf	PinDir@Base,w
+   591  07B4  00F4               	movwf	??_PinDir+2
+   592  07B5  3000               	movlw	0
+   593  07B6  00F5               	movwf	??_PinDir+3
+   594  07B7  0874               	movf	??_PinDir+2,w
+   595  07B8  0084               	movwf	4
+   596  07B9  1783               	bsf	3,7
+   597  07BA  1C75               	btfss	??_PinDir+3,0
+   598  07BB  1383               	bcf	3,7
+   599  07BC  0873               	movf	??_PinDir+1,w
+   600  07BD  0480               	iorwf	0,f
+   601  07BE                     l28:
+   602  07BE  0008               	return
+   603  07BF                     __end_of_PinDir:
+   604                           
+   605                           	psect	text4
+   606  0720                     __ptext4:	
+   607 ;; *************** function _GPIO_INIT *****************
+   608 ;; Defined at:
+   609 ;;		line 3 in file "App.c"
+   610 ;; Parameters:    Size  Location     Type
+   611 ;;		None
+   612 ;; Auto vars:     Size  Location     Type
+   613 ;;		None
+   614 ;; Return value:  Size  Location     Type
+   615 ;;                  1    wreg      void 
+   616 ;; Registers used:
+   617 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   618 ;; Tracked objects:
+   619 ;;		On entry : 0/0
+   620 ;;		On exit  : 0/0
+   621 ;;		Unchanged: 0/0
+   622 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   623 ;;      Params:         0       0       0       0       0
+   624 ;;      Locals:         0       0       0       0       0
+   625 ;;      Temps:          1       0       0       0       0
+   626 ;;      Totals:         1       0       0       0       0
+   627 ;;Total ram usage:        1 bytes
+   628 ;; Hardware stack levels used: 1
+   629 ;; Hardware stack levels required when called: 1
+   630 ;; This function calls:
+   631 ;;		_SelectADC
+   632 ;; This function is called by:
+   633 ;;		_main
+   634 ;; This function uses a non-reentrant model
+   635 ;;
+   636                           
+   637  0720                     _GPIO_INIT:	
+   638                           ;psect for function _GPIO_INIT
+   639                           
+   640  0720                     l674:	
+   641                           ;incstack = 0
+   642                           ; Regs used in _GPIO_INIT: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   643                           
+   644                           
+   645                           ;App.c: 6:     SelectADC (0x9F, 0x06);
+   646  0720  3006               	movlw	6
+   647  0721  00F5               	movwf	??_GPIO_INIT
+   648  0722  0875               	movf	??_GPIO_INIT,w
+   649  0723  00F0               	movwf	SelectADC@value
+   650  0724  309F               	movlw	159
+   651  0725  120A  118A  272B  120A  118A  	fcall	_SelectADC
+   652  072A                     l23:
+   653  072A  0008               	return
+   654  072B                     __end_of_GPIO_INIT:
+   655                           
+   656                           	psect	text5
+   657  072B                     __ptext5:	
+   658 ;; *************** function _SelectADC *****************
+   659 ;; Defined at:
+   660 ;;		line 60 in file "HAL.c"
+   661 ;; Parameters:    Size  Location     Type
+   662 ;;  Base            1    wreg     unsigned char 
+   663 ;;  value           1    0[COMMON] unsigned char 
+   664 ;; Auto vars:     Size  Location     Type
+   665 ;;  Base            1    4[COMMON] unsigned char 
+   666 ;; Return value:  Size  Location     Type
+   667 ;;                  1    wreg      void 
+   668 ;; Registers used:
+   669 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   670 ;; Tracked objects:
+   671 ;;		On entry : 0/0
+   672 ;;		On exit  : 0/0
+   673 ;;		Unchanged: 0/0
+   674 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   675 ;;      Params:         1       0       0       0       0
+   676 ;;      Locals:         1       0       0       0       0
+   677 ;;      Temps:          3       0       0       0       0
+   678 ;;      Totals:         5       0       0       0       0
+   679 ;;Total ram usage:        5 bytes
+   680 ;; Hardware stack levels used: 1
+   681 ;; This function calls:
+   682 ;;		Nothing
+   683 ;; This function is called by:
+   684 ;;		_GPIO_INIT
+   685 ;; This function uses a non-reentrant model
+   686 ;;
+   687                           
+   688  072B                     _SelectADC:	
+   689                           ;psect for function _SelectADC
+   690                           
+   691                           
+   692                           ;incstack = 0
+   693                           ; Regs used in _SelectADC: [wreg-fsr0h+status,2+status,0]
+   694                           ;SelectADC@Base stored from wreg
+   695  072B  00F4               	movwf	SelectADC@Base
+   696  072C                     l672:
+   697                           
+   698                           ;HAL.c: 61:     (*(volatile uint8_t *)(Base)) |= value;
+   699  072C  0870               	movf	SelectADC@value,w
+   700  072D  00F1               	movwf	??_SelectADC
+   701  072E  0874               	movf	SelectADC@Base,w
+   702  072F  00F2               	movwf	??_SelectADC+1
+   703  0730  01F3               	clrf	??_SelectADC+2
+   704  0731  0872               	movf	??_SelectADC+1,w
+   705  0732  0084               	movwf	4
+   706  0733  1783               	bsf	3,7
+   707  0734  1C73               	btfss	??_SelectADC+2,0
+   708  0735  1383               	bcf	3,7
+   709  0736  0871               	movf	??_SelectADC,w
+   710  0737  0480               	iorwf	0,f
+   711  0738                     l44:
+   712  0738  0008               	return
+   713  0739                     __end_of_SelectADC:
+   714  007E                     btemp	set	126	;btemp
+   715  007E                     wtemp0	set	126
+   716                           
+   717                           	psect	idloc
+   718                           
+   719                           ;Config register IDLOC0 @ 0x2000
+   720                           ;	unspecified, using default values
+   721  2000                     	org	8192
+   722  2000  3FFF               	dw	16383
+   723                           
+   724                           ;Config register IDLOC1 @ 0x2001
+   725                           ;	unspecified, using default values
+   726  2001                     	org	8193
+   727  2001  3FFF               	dw	16383
+   728                           
+   729                           ;Config register IDLOC2 @ 0x2002
+   730                           ;	unspecified, using default values
+   731  2002                     	org	8194
+   732  2002  3FFF               	dw	16383
+   733                           
+   734                           ;Config register IDLOC3 @ 0x2003
+   735                           ;	unspecified, using default values
+   736  2003                     	org	8195
+   737  2003  3FFF               	dw	16383
+   738                           
+   739                           	psect	config
+   740                           
+   741                           ;Config register CONFIG @ 0x2007
+   742                           ;	unspecified, using default values
+   743                           ;	Oscillator Selection bits
+   744                           ;	FOSC = 0x3, unprogrammed default
+   745                           ;	Watchdog Timer Enable bit
+   746                           ;	WDTE = 0x1, unprogrammed default
+   747                           ;	Power-up Timer Enable bit
+   748                           ;	PWRTE = 0x1, unprogrammed default
+   749                           ;	Brown-out Reset Enable bit
+   750                           ;	BOREN = 0x1, unprogrammed default
+   751                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   752                           ;	LVP = 0x1, unprogrammed default
+   753                           ;	Data EEPROM Memory Code Protection bit
+   754                           ;	CPD = 0x1, unprogrammed default
+   755                           ;	Flash Program Memory Write Enable bits
+   756                           ;	WRT = 0x3, unprogrammed default
+   757                           ;	In-Circuit Debugger Mode bit
+   758                           ;	DEBUG = 0x1, unprogrammed default
+   759                           ;	Flash Program Memory Code Protection bit
+   760                           ;	CP = 0x1, unprogrammed default
+   761  2007                     	org	8199
+   762  2007  3FFF               	dw	16383
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      7       7
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_PinDir
+    _main->_PinWrite
+    _GPIO_INIT->_SelectADC
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    1068
+                          _GPIO_INIT
+                             _PinDir
+                            _PinRead
+                           _PinWrite
+ ---------------------------------------------------------------------------------
+ (1) _PinWrite                                             7     5      2     414
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ (1) _PinRead                                              5     4      1     120
+                                              0 COMMON     5     4      1
+ ---------------------------------------------------------------------------------
+ (1) _PinDir                                               7     5      2     414
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ (1) _GPIO_INIT                                            1     1      0     120
+                                              5 COMMON     1     1      0
+                          _SelectADC
+ ---------------------------------------------------------------------------------
+ (2) _SelectADC                                            5     4      1     120
+                                              0 COMMON     5     4      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _GPIO_INIT
+     _SelectADC
+   _PinDir
+   _PinRead
+   _PinWrite
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      7       7       1       50.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
+Symbol Table                                                                                   Sat Apr 15 00:08:00 2023
+
+                     l13 07D7                       l23 072A                       l33 0787  
+                     l44 0738                       l28 07BE                       l37 0754  
+                    l700 07BF                      l702 07E4                      l704 07EE  
+                    l672 072C                      l680 07A7                      l674 0720  
+                    l690 0753                      l682 073A                      l676 0789  
+                    l684 0751                      l678 078E                      l694 0756  
+                    l696 075B                      l698 0771                      u110 078E  
+                    u111 078D                      u124 0794                      u125 0792  
+                    u134 07AD                      u150 0751                      u135 07AB  
+                    u151 0750                      u144 0748                      u160 075B  
+                    u145 0746                      u161 075A                      u174 0761  
+                    u190 07E4                      u175 075F                      u191 07E3  
+                    u184 0777                      u185 0775                      fsr0 0004  
+                    indf 0000                     _main 07BF                     btemp 007E  
+          SelectADC@Base 0074                     start 0000               PinDir@Base 0076  
+        __end_of_PinRead 0755                    ?_main 0070               PinRead@pin 0070  
+                  status 0003                    wtemp0 007E           SelectADC@value 0070  
+        __initialization 07FC             __end_of_main 07FC              PinDir@state 0071  
+                 ??_main 0077         __end_of_PinWrite 0788        __end_of_GPIO_INIT 072B  
+            PinRead@Base 0074                ??_PinRead 0071                   _PinDir 0788  
+            PinWrite@pin 0070  __end_of__initialization 07FC           __pcstackCOMMON 0070  
+      __end_of_SelectADC 0739                ?_PinWrite 0070                  ?_PinDir 0070  
+             __pmaintext 07BF               ??_PinWrite 0072                  _PinRead 0739  
+                __ptext1 0755                  __ptext2 0739                  __ptext3 0788  
+                __ptext4 0720                  __ptext5 072B                _GPIO_INIT 0720  
+   end_of_initialization 07FC             PinWrite@Base 0076             PinWrite@stat 0071  
+             ?_GPIO_INIT 0070                PinDir@pin 0070           __end_of_PinDir 07BF  
+    start_initialization 07FC                _SelectADC 072B                 ??_PinDir 0072  
+              ___latbits 0002              ??_GPIO_INIT 0075               ?_SelectADC 0070  
+               ?_PinRead 0070              ??_SelectADC 0071                 _PinWrite 0755  

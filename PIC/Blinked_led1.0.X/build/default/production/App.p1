@@ -1,0 +1,17 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"29 ./HAL.h
+[; ;./HAL.h: 29: void SelectADC (uint8_t Base, uint8_t value);
+[v _SelectADC `(v ~T0 @X0 0 ef2`uc`uc ]
+"3 App.c
+[; ;App.c: 3: void GPIO_INIT(){
+[v _GPIO_INIT `(v ~T0 @X0 1 ef ]
+{
+[e :U _GPIO_INIT ]
+[f ]
+"6
+[; ;App.c: 6:     SelectADC (0x9F, 0x06);
+[e ( _SelectADC (2 , -> -> 159 `i `uc -> -> 6 `i `uc ]
+"9
+[; ;App.c: 9: }
+[e :UE 1 ]
+}

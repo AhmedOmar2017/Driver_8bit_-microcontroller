@@ -1,0 +1,129 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"7 HAL.c
+[; ;HAL.c: 7:     if(state == output){
+[c E34 0 1 .. ]
+[n E34 . output input  ]
+"24
+[; ;HAL.c: 24:     if(stat == high){
+[c E30 0 1 .. ]
+[n E30 . low high  ]
+"6 HAL.c
+[; ;HAL.c: 6: void PinDir(uint8_t Base, uint8_t pin, uint8_t state){
+[v _PinDir `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _PinDir ]
+[v _Base `uc ~T0 @X0 1 r1 ]
+[v _pin `uc ~T0 @X0 1 r2 ]
+[v _state `uc ~T0 @X0 1 r3 ]
+[f ]
+"7
+[; ;HAL.c: 7:     if(state == output){
+[e $ ! == -> _state `i -> . `E34 0 `i 2  ]
+{
+"9
+[; ;HAL.c: 9:         ((*(volatile uint8_t *)((Base|0x80))) &= ~(1<<pin));
+[e =& *U -> | -> _Base `i -> 128 `i `*Vuc -> ~ << -> 1 `i -> _pin `i `uc ]
+"13
+[; ;HAL.c: 13:     }else{
+}
+[e $U 3  ]
+[e :U 2 ]
+{
+"15
+[; ;HAL.c: 15:         ((*(volatile uint8_t *)((Base|0x80))) |= 1<<pin);
+[e =| *U -> | -> _Base `i -> 128 `i `*Vuc -> << -> 1 `i -> _pin `i `uc ]
+"19
+[; ;HAL.c: 19:     }
+}
+[e :U 3 ]
+"20
+[; ;HAL.c: 20: }
+[e :UE 1 ]
+}
+"22
+[; ;HAL.c: 22: void PinWrite(uint8_t Base, uint8_t pin, uint8_t stat){
+[v _PinWrite `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _PinWrite ]
+[v _Base `uc ~T0 @X0 1 r1 ]
+[v _pin `uc ~T0 @X0 1 r2 ]
+[v _stat `uc ~T0 @X0 1 r3 ]
+[f ]
+"24
+[; ;HAL.c: 24:     if(stat == high){
+[e $ ! == -> _stat `i -> . `E30 1 `i 5  ]
+{
+"26
+[; ;HAL.c: 26:         ((*(volatile uint8_t *)(Base)) |= 1<<pin);
+[e =| *U -> _Base `*Vuc -> << -> 1 `i -> _pin `i `uc ]
+"30
+[; ;HAL.c: 30:     }else{
+}
+[e $U 6  ]
+[e :U 5 ]
+{
+"32
+[; ;HAL.c: 32:         ((*(volatile uint8_t *)(Base)) &= ~(1<<pin));
+[e =& *U -> _Base `*Vuc -> ~ << -> 1 `i -> _pin `i `uc ]
+"36
+[; ;HAL.c: 36:     }
+}
+[e :U 6 ]
+"38
+[; ;HAL.c: 38: }
+[e :UE 4 ]
+}
+"40
+[; ;HAL.c: 40: uint8_t PinRead(uint8_t Base, uint8_t pin){
+[v _PinRead `(uc ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _PinRead ]
+[v _Base `uc ~T0 @X0 1 r1 ]
+[v _pin `uc ~T0 @X0 1 r2 ]
+[f ]
+"41
+[; ;HAL.c: 41: if ((*(volatile uint8_t *)(Base)) & (1<<pin)) return 1;
+[e $ ! != & -> *U -> _Base `*Vuc `i << -> 1 `i -> _pin `i -> 0 `i 8  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 7  ]
+[e $U 9  ]
+"42
+[; ;HAL.c: 42: else return 0;
+[e :U 8 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 7  ]
+[e :U 9 ]
+"43
+[; ;HAL.c: 43: }
+[e :UE 7 ]
+}
+"45
+[; ;HAL.c: 45: void PinTaggle(uint8_t Base, uint8_t pin){
+[v _PinTaggle `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _PinTaggle ]
+[v _Base `uc ~T0 @X0 1 r1 ]
+[v _pin `uc ~T0 @X0 1 r2 ]
+[f ]
+"47
+[; ;HAL.c: 47:    ((*(volatile uint8_t *)(Base))^= 1<<pin);
+[e =^ *U -> _Base `*Vuc -> << -> 1 `i -> _pin `i `uc ]
+"51
+[; ;HAL.c: 51: }
+[e :UE 10 ]
+}
+"60
+[; ;HAL.c: 60: void SelectADC (uint8_t Base, uint8_t value){
+[v _SelectADC `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _SelectADC ]
+[v _Base `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+[f ]
+"61
+[; ;HAL.c: 61:     (*(volatile uint8_t *)(Base)) |= value;
+[e =| *U -> _Base `*Vuc -> _value `uc ]
+"62
+[; ;HAL.c: 62: }
+[e :UE 11 ]
+}
