@@ -28,7 +28,7 @@ void LCD_INIT(){
         #elif Mode == 4
            #if PIC_16F87XA == 1
             __delay_us(2000);
-           #else
+            #else
             _delay_us(2000);
            #endif
            

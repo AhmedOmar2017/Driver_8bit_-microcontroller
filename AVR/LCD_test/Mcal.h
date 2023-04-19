@@ -10,13 +10,6 @@
 #define MCAL_H_
 
 #include "MACROS.h"
-#if PIC_16F87XA == 1
-    #include <xc.h>
-#else
-    #include <util/delay.h>    
-#endif
-
-
 
 typedef enum{
     low, high
@@ -39,7 +32,7 @@ typedef enum {
 #define BaseA       0x05
 #define BaseB       0x06
 #define BaseC       0x07
-#define BaseD       0x08
+#define baseD       0x08
 #define BaseE       0x09
 
 /* END Adresses of ports*/

@@ -96,8 +96,6 @@ void SelectADC (uint8_t Base, uint8_t value){
 /*===================================== App functions ==============================================*/
 
 #if LCD_4X20 == 1
-
-/*------------------------------------LCD Command function -------------------------------------------*/
 void LCD_Command(uint8_t value){
     #if Mode == 8
         PortWrite(Port_Data, value);
@@ -106,13 +104,13 @@ void LCD_Command(uint8_t value){
         PinWrite(Command, RS, low);
         PinWrite(Command, E, high);
          #if PIC_16F87XA == 1
-            __delay_us(1);
+            delay_us(1);
          #else
             _delay_us(1);   
          #endif   
         PinWrite(Command, E, low);
          #if PIC_16F87XA == 1
-            __delay_us(100);
+            delay_us(100);
          #else
             _delay_us(100);   
          #endif   
@@ -124,38 +122,34 @@ void LCD_Command(uint8_t value){
     PinWrite(Command, RS, low);
     PinWrite(Command, E, high);
      #if PIC_16F87XA == 1
-          __delay_us(1);
+          delay_us(1);
     #else
           _delay_us(1);   
     #endif   
     PinWrite(Command, E, low);
     #if PIC_16F87XA == 1
-          __delay_us(100);
+          delay_us(100);
     #else
           _delay_us(100);   
     #endif   
-} /* End LCD Command function */
-
-
-
-/*------------------------------------LCD Data function -------------------------------------------*/
+}
 
 volatile void LCD_Data(uint8_t value){
         PinWrite(Command, RS, high);
     #if Mode == 8
         PortWrite(Port_Data, value);
-    #elif Mode == 4
+    #elif mode == 4
         PortWrite(Port_Data, (value & 0xf0));
         PinWrite(Command, RS   , high);
         PinWrite(Command, E, high);
         #if PIC_16F87XA == 1
-          __delay_us(1);
+          delay_us(1);
         #else
           _delay_us(1);   
         #endif   
         PinWrite(Command, E, low);
         #if PIC_16F87XA == 1
-          __delay_us(100);
+          delay_us(100);
         #else
           _delay_us(100);   
         #endif   
@@ -163,19 +157,20 @@ volatile void LCD_Data(uint8_t value){
     #else
         #error  Value of mode must be 4 or 8 only
     #endif
+
     PinWrite(Command, E, high);
      #if PIC_16F87XA == 1
-        __delay_us(1);
+        delay_us(1);
     #else
         _delay_us(1);   
     #endif   
     PinWrite(Command, E, low);
     #if PIC_16F87XA == 1
-        __delay_us(100);
+        delay_us(100);
     #else
-        _delay_us(100);     
+        _delay_us(100);   
     #endif   
-}/* End LCD Data function  */
+}
 
 #endif
 

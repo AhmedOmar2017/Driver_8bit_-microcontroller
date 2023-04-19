@@ -12,8 +12,6 @@
 #include "MACROS.h"
 #if PIC_16F87XA == 1
     #include <xc.h>
-#else
-    #include <util/delay.h>    
 #endif
 
 

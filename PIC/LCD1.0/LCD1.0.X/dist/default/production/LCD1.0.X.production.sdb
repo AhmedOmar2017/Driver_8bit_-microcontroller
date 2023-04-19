@@ -1,0 +1,167 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"21 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\main.c
+[e E882 . `uc
+output 0
+input 1
+]
+"25
+[e E878 . `uc
+low 0
+high 1
+]
+"15 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\App.c
+[e E882 . `uc
+output 0
+input 1
+]
+"19
+[e E878 . `uc
+low 0
+high 1
+]
+"7 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[e E882 . `uc
+output 0
+input 1
+]
+"50
+[e E878 . `uc
+low 0
+high 1
+]
+"3 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\App.c
+[v _GPIO_INIT GPIO_INIT `(v  1 e 1 0 ]
+"13
+[v _LCD_INIT LCD_INIT `(v  1 e 1 0 ]
+"53
+[v _LCD_Print LCD_Print `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[v _PinDir PinDir `(v  1 e 1 0 ]
+"22
+[v _PortDir PortDir `(v  1 e 1 0 ]
+"38
+[v _PortWrite PortWrite `(v  1 e 1 0 ]
+"48
+[v _PinWrite PinWrite `(v  1 e 1 0 ]
+"67
+[v _PinRead PinRead `(uc  1 e 1 0 ]
+"87
+[v _SelectADC SelectADC `(v  1 e 1 0 ]
+"101
+[v _LCD_Command LCD_Command `(v  1 e 1 0 ]
+"143
+[v _LCD_Data LCD_Data `(VEv  1 e 1 0 ]
+"14 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\main.c
+[v _main main `(v  1 e 1 0 ]
+[v _main main `(v  1 e 1 0 ]
+{
+"32
+} 0
+"67 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[v _PinRead PinRead `(uc  1 e 1 0 ]
+{
+[v PinRead@Base Base `uc  1 a 1 wreg ]
+[v PinRead@Base Base `uc  1 a 1 wreg ]
+[v PinRead@pin pin `uc  1 p 1 0 ]
+[v PinRead@Base Base `uc  1 a 1 4 ]
+"70
+} 0
+"53 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\App.c
+[v _LCD_Print LCD_Print `(v  1 e 1 0 ]
+{
+[v LCD_Print@str str `*.24uc  1 a 1 wreg ]
+"54
+[v LCD_Print@i i `uc  1 a 1 12 ]
+"53
+[v LCD_Print@str str `*.24uc  1 a 1 wreg ]
+[v LCD_Print@str str `*.24uc  1 a 1 11 ]
+"59
+} 0
+"143 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[v _LCD_Data LCD_Data `(VEv  1 e 1 0 ]
+{
+[v LCD_Data@value value `uc  1 a 1 wreg ]
+[v LCD_Data@value value `uc  1 a 1 wreg ]
+[v LCD_Data@value value `uc  1 a 1 9 ]
+"178
+} 0
+"13 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\App.c
+[v _LCD_INIT LCD_INIT `(v  1 e 1 0 ]
+{
+"51
+} 0
+"22 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[v _PortDir PortDir `(v  1 e 1 0 ]
+{
+[v PortDir@Base Base `uc  1 a 1 wreg ]
+[v PortDir@Base Base `uc  1 a 1 wreg ]
+[v PortDir@state state `uc  1 p 1 0 ]
+[v PortDir@Base Base `uc  1 a 1 4 ]
+"36
+} 0
+"6
+[v _PinDir PinDir `(v  1 e 1 0 ]
+{
+[v PinDir@Base Base `uc  1 a 1 wreg ]
+[v PinDir@Base Base `uc  1 a 1 wreg ]
+[v PinDir@pin pin `uc  1 p 1 0 ]
+[v PinDir@state state `uc  1 p 1 1 ]
+[v PinDir@Base Base `uc  1 a 1 6 ]
+"20
+} 0
+"101
+[v _LCD_Command LCD_Command `(v  1 e 1 0 ]
+{
+[v LCD_Command@value value `uc  1 a 1 wreg ]
+[v LCD_Command@value value `uc  1 a 1 wreg ]
+"105
+[v LCD_Command@value value `uc  1 a 1 9 ]
+"137
+} 0
+"38
+[v _PortWrite PortWrite `(v  1 e 1 0 ]
+{
+[v PortWrite@Base Base `uc  1 a 1 wreg ]
+[v PortWrite@Base Base `uc  1 a 1 wreg ]
+[v PortWrite@value value `uc  1 p 1 0 ]
+"41
+[v PortWrite@Base Base `uc  1 a 1 4 ]
+"46
+} 0
+"48
+[v _PinWrite PinWrite `(v  1 e 1 0 ]
+{
+[v PinWrite@Base Base `uc  1 a 1 wreg ]
+[v PinWrite@Base Base `uc  1 a 1 wreg ]
+[v PinWrite@pin pin `uc  1 p 1 0 ]
+[v PinWrite@stat stat `uc  1 p 1 1 ]
+"50
+[v PinWrite@Base Base `uc  1 a 1 6 ]
+"64
+} 0
+"3 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\App.c
+[v _GPIO_INIT GPIO_INIT `(v  1 e 1 0 ]
+{
+"9
+} 0
+"87 D:\courses\Write_drivers\PIC\LCD1.0\LCD1.0.X\HAL.c
+[v _SelectADC SelectADC `(v  1 e 1 0 ]
+{
+[v SelectADC@Base Base `uc  1 a 1 wreg ]
+[v SelectADC@Base Base `uc  1 a 1 wreg ]
+[v SelectADC@value value `uc  1 p 1 0 ]
+[v SelectADC@Base Base `uc  1 a 1 4 ]
+"89
+} 0

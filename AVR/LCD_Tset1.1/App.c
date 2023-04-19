@@ -27,9 +27,7 @@ void LCD_INIT(){
             LCD_Command(0x38);          // Init command
         #elif Mode == 4
            #if PIC_16F87XA == 1
-            __delay_us(2000);
-           #else
-            _delay_us(2000);
+            delay_us(2000);
            #endif
            
             LCD_Command(0x33);           // Init command
